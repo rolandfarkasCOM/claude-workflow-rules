@@ -7,7 +7,7 @@ Opinionated rules for AI-assisted development with Claude Code. Drop into any pr
 1. Copy `CLAUDE.md` into your project root:
 
 ```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/rolandfarkas/claude-workflow-rules/main/CLAUDE.md
+curl -o CLAUDE.md https://raw.githubusercontent.com/rolandfarkasCOM/claude-workflow-rules/main/CLAUDE.md
 ```
 
 Or clone this repo and copy the file manually.
