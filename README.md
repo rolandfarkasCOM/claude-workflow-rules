@@ -1,16 +1,24 @@
-# Claude Workflow Rules
+# Claude Workflow Rules — CLAUDE.md Template for Claude Code
 
-Opinionated rules for AI-assisted development with Claude Code. Drop into any project to get consistent, high-quality output from AI coding assistants.
+A drop-in **`CLAUDE.md`** template with opinionated rules and workflows for [Claude Code](https://claude.com/claude-code), Anthropic's AI coding assistant. Copy one file into your project root to get consistent, high-quality AI output: planning discipline, persistent project memory, language-aware testing, security defaults, and atomic git practices.
 
-## Usage
+## Quick Start
 
-1. Copy `CLAUDE.md` into your project root:
+1. Copy `CLAUDE.md` into your project root.
 
-```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/rolandfarkasCOM/claude-workflow-rules/main/CLAUDE.md
-```
+   **macOS / Linux:**
 
-Or clone this repo and copy the file manually.
+   ```bash
+   curl -o CLAUDE.md https://raw.githubusercontent.com/rolandfarkasCOM/claude-workflow-rules/main/CLAUDE.md
+   ```
+
+   **Windows (PowerShell):**
+
+   ```powershell
+   Invoke-WebRequest -Uri https://raw.githubusercontent.com/rolandfarkasCOM/claude-workflow-rules/main/CLAUDE.md -OutFile CLAUDE.md
+   ```
+
+   Or clone this repo and copy the file manually.
 
 2. Open Claude Code in your project and tell it to set everything up:
 
@@ -25,7 +33,7 @@ Claude will create `.claude/memory/` (with `decisions.md`, `patterns.md`, `conte
 - **First-Time Setup** — Claude asks about your git, PR, and testing preferences on first run
 - **How to Work** — planning, subagents, verification, elegance, autonomous bug fixing, self-improvement loop
 - **Project Memory** — structured files for architectural decisions, code patterns, domain context, and session logs
-- **Testing** — language-appropriate test frameworks, CI setup, what to test
+- **Testing** — language-appropriate test frameworks (Vitest, Jest, Playwright, pytest, PHPUnit, `go test`, `cargo test`), CI setup, what to test
 - **Error Handling** — search-first debugging, language-appropriate patterns, fail loudly in dev / gracefully in prod
 - **Task Tracking** — structured approach using `tasks/todo.md` and `tasks/lessons.md`
 - **Tool Integration** — [GSD](https://github.com/gsd-build/get-shit-done) for structured execution, [Claude-Mem](https://github.com/thedotmack/claude-mem) for automatic session memory
@@ -38,7 +46,7 @@ Claude will create `.claude/memory/` (with `decisions.md`, `patterns.md`, `conte
 
 ## Memory System
 
-Two layers of memory work together:
+Two layers of memory work together to keep Claude Code aware of your project across sessions:
 
 | Layer | How it works | What it captures |
 |---|---|---|
@@ -68,6 +76,24 @@ The rules are a starting point. Add project-specific sections to `CLAUDE.md` for
 - Project-specific conventions (naming, file structure, component patterns)
 - Key directories and their purpose
 - Performance requirements or constraints
+
+## FAQ
+
+### What is CLAUDE.md?
+
+`CLAUDE.md` is the convention Claude Code uses for project-specific instructions. When you open a project, Claude Code automatically loads `CLAUDE.md` from the repo root and treats it as system prompt context for the entire session — so any rules, conventions, or commands you put there shape every response.
+
+### How is this different from a regular README?
+
+A README documents the project for humans. `CLAUDE.md` documents it for the AI coding assistant — preferred workflow, testing approach, security rules, things to avoid. The two complement each other.
+
+### Can I use these rules with Cursor, Cody, or other AI coding tools?
+
+The underlying rules (planning, testing, security, git discipline) apply to any AI assistant. The Claude Code–specific bits — the `CLAUDE.md` auto-loading convention, the `/gsd-*` slash commands, and claude-mem integration — only work with Claude Code itself.
+
+### Where do I put project-specific overrides?
+
+Edit `CLAUDE.md` directly after copying it. The file lives in your repo and is yours to customize — add a section at the bottom for your stack, build commands, and conventions.
 
 ## License
 
